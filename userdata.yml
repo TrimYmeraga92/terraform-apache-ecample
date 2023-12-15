@@ -1,0 +1,12 @@
+runcmd:
+  - systemctl enable httpd
+  - systemctl start httpd
+
+# The write_files module writes content to a file, with specified
+# ownership and permissions.
+write_files:
+  - path: /var/www/html/index.html
+    content: |
+      Welcome to your HTTP server!
+    owner: root:root
+    permissions: '0644'
